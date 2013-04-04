@@ -1,0 +1,22 @@
+name: style for admin_boundary_lines_0
+feature-styles:
+
+  - rules:
+      - zoom-levels:
+          min: 6
+        symbolizers:
+          line:
+            stroke:
+              width: .5
+              color: '#eeeeee'
+
+
+  - rules:
+      - zoom-levels:
+          max: 6
+        symbolizers:
+          line:
+            stroke:
+              width: .5
+              dash-array: [5, 5]
+              color: '#898989'

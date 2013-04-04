@@ -1,0 +1,22 @@
+name: Style for populated places
+feature-styles:
+
+  - rules:
+      - where: scalerank < 3
+        symbolizers:
+          text:
+            placement:
+              displacment:
+                x: 10
+                y: 10
+              point:
+                x: .7
+                y: .2
+            font:
+              size: 16
+              family: Droid Sans
+            fill:
+              color: '#000000'
+            label:
+              property: name
+          

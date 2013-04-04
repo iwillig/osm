@@ -1,0 +1,12 @@
+name: style for land_110
+feature-styles:
+
+  - rules:
+      - zoom-levels:
+          min: 10
+        symbolizers:
+          polygon:
+            stroke:
+              opacity: 0
+            fill:
+              color: '#ffffff'

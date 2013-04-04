@@ -1,0 +1,41 @@
+name: Ocean labels
+feature-styles:
+  - rules:
+      - where: area > 100
+        symbolizers:
+          text:
+            placement:
+              displacment:
+                x: 10
+                y: 10
+              point:
+                x: .7
+                y: .2
+            font:
+              size: 14
+              family: Droid Sans
+            fill:
+              color: '#8196ad'
+            label:
+              property: name
+
+      - where: area < 100
+        zoom-levels:
+          max: 6
+          min: 20
+        symbolizers:
+          text:
+            placement:
+              displacment:
+                x: 10
+                y: 10
+              point:
+                x: .7
+                y: .2
+            font:
+              size: 14
+              family: Droid Sans
+            fill:
+              color: '#8196ad'
+            label:
+              property: name

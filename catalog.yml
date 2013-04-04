@@ -1,0 +1,150 @@
+#define the workspace to be used in the remote geoserver
+workspace: osm
+
+# define the data stores for the map
+datastores:
+  - name: ny
+    type: postgis
+
+# define the style configuration objects
+styles:
+  - name: planet_osm_line
+    type: yaml
+    path: osm/planet_osm_line.yml
+
+  - name: planet_osm_polygon
+    type: yaml
+    path: osm/planet_osm_polygon.yml
+
+  - name: planet_osm_point
+    type: yaml
+    path: osm/planet_osm_point.yml
+
+  - name: admin_boundary_lines_0
+    type: yaml
+    path: osm/admin_boundary_lines_0.yml
+
+  - name: land_110
+    type: yaml
+    path: osm/land_110.yml
+
+  - name: processed_p
+    type: yaml
+    path: osm/processed_p.yml
+
+  - name: admin_states_provinces
+    type: yaml
+    path: osm/admin_states_provinces.yml
+
+  - name: admin_0_boundary_lines_maritime
+    type: yaml
+    path: osm/admin_0_boundary_lines_maritime.yml
+
+  - name: urban_areas
+    type: yaml
+    path: osm/urban_areas.yml
+
+  - name: ocean_labels
+    type: yaml
+    path: osm/ocean_labels.yml
+
+  - name: populated_places
+    type: yaml
+    path: osm/populated_places.yml
+
+
+# define the database tables
+tables:
+
+  - name: planet_osm_line
+    datastore: ny
+
+  - name: planet_osm_polygon
+    datastore: ny
+
+  - name: planet_osm_point
+    datastore: ny
+
+  - name: shoreline
+    datastore: ny
+
+  - name: land_110
+    datastore: ny
+
+  - name: shoreline_300
+    datastore: ny
+
+  - name: admin_0_boundary_lines
+    datastore: ny
+
+  - name: admin_states_provinces
+    datastore: ny
+
+  - name: admin_0_boundary_lines_maritime
+    datastore: ny
+
+  - name: urban_areas
+    datastore: ny
+
+  - name: ocean_labels
+    datastore: ny
+
+  - name: populated_places
+    datastore: ny
+
+# define the map objects, the important stuff
+maps:
+  - name: Natural Earth
+    bgcolor: '#a5bfdd'
+    epsg: 4326
+    bbox: [-106.49044495473433,26.5032364955807,-38.06759339223053,55.39983886672808]
+    layers: 
+
+      - table: land_110
+        style: land_110
+
+  - name: OpenStreetMap
+#    bgcolor: '#959eb2'
+    bgcolor: '#a5bfdd'
+    epsg: 4326
+    bbox: [-106.49044495473433,26.5032364955807,-38.06759339223053,55.39983886672808]
+    layers:
+
+
+
+      - table: shoreline_300
+        style: processed_p
+
+      - table: shoreline
+        style: processed_p
+
+
+      # - table: land_110
+      #   style: land_110
+
+      - table: urban_areas
+        style: urban_areas
+
+      - table: ocean_labels
+        style: ocean_labels
+
+      - table: planet_osm_polygon
+        style: planet_osm_polygon
+
+      - table: planet_osm_line
+        style: planet_osm_line
+
+      - table: planet_osm_point
+        style: planet_osm_point
+
+      - table: populated_places
+        style: populated_places
+
+      - table: admin_states_provinces
+        style: admin_states_provinces
+
+      - table: admin_0_boundary_lines
+        style: admin_boundary_lines_0
+
+      - table: admin_0_boundary_lines_maritime
+        style: admin_0_boundary_lines_maritime
